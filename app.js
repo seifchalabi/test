@@ -1,11 +1,18 @@
-let btn = document.querySelector("button")
-let ul = document.querySelector("ul")
 let body = document.body
+let input = document.querySelector("input")
+let btn = document.querySelector("button")
+let ol = document.querySelector("ol")
 btn.addEventListener("click",()=>{
-    let li = document.createElement("li")
-    li.textContent = "Hello world"
-    ul.append(li)
-    li.addEventListener("dblclick",()=>{
-        li.remove()
-    })
+    if(input.value != ""){
+        let li = document.createElement("li")
+        li.textContent = input.value
+        input.value = ""
+        ol.append(li)
+        li.addEventListener("click",()=>{
+            li.style.textDecoration = "line-through"
+        })
+        li.addEventListener("dblclick",()=>{
+            li.remove()
+        })
+    }
 })
